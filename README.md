@@ -48,3 +48,7 @@ For a list of available commands and options, just run
 lxc
 
 ```
+To list all the running instances
+```
+sudo lxc list
+```
