@@ -27,26 +27,24 @@ VM
 
 Command:
 
-```lxc launch <image_server>:<image_name> <instance_name> --vm
+```lxc launch <image_server>:<image_name> <instance_name> --vm```
 
 Example:
-
+```
 lxc launch ubuntu:22.04 ubuntu-vm --vm
-
+```
 Check the community image server for other Linux distributions.
-Run commands
 
 You now have your instance up and running! You’re all set to experiment with any commands you need.
 
 Command:
-
-lxc exec <instance_name> -- <command>
-
+```lxc exec <instance_name> -- <command>```
 Example:
-
+```
 lxc exec ubuntu-container -- apt-get update
-
+```
 For a list of available commands and options, just run
-
+```
 lxc
 
+```
