@@ -4,6 +4,9 @@ Lxd introduction
 ## Firewall issues
 ### You might see issues with your firewall blocking network access for your instances, or connectivity issues because you run LXD and Docker on the same host.
 
+### See How to configure your firewall for information on how to resolve such issues.
+Ref: https://documentation.ubuntu.com/lxd/en/latest/howto/network_bridge_firewalld/#network-bridge-firewall
+
 ## Install LXD as a snap
 To install LXD as a snap, just run:
 ```
