@@ -52,3 +52,7 @@ To list all the running instances
 ```
 sudo lxc list
 ```
+To get into the containers terminal
+```
+sudo lxc exec <container_name> -- bash
+```
