@@ -1,5 +1,8 @@
 # lxd-lxc-intro
 Lxd introduction
+# IMPORTANT
+## Firewall issues
+### You might see issues with your firewall blocking network access for your instances, or connectivity issues because you run LXD and Docker on the same host.
 
 ## Install LXD as a snap
 To install LXD as a snap, just run:
