@@ -66,3 +66,6 @@ sudo lxc exec <container_name> -- bash
 for LXDUI
 https://github.com/AdaptiveScale/lxdui
 https://pypi.org/project/lxdui/
+
+for vnc
+https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
