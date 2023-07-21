@@ -62,3 +62,7 @@ To get into the containers terminal
 ```
 sudo lxc exec <container_name> -- bash
 ```
+
+for LXDUI
+https://github.com/AdaptiveScale/lxdui
+https://pypi.org/project/lxdui/
