@@ -125,10 +125,9 @@ In summary, LXC containers are lighter and more efficient, while virtual machine
 
 
 for LXDUI
-https://github.com/AdaptiveScale/lxdui
-
-https://pypi.org/project/lxdui/
-
+old:(https://github.com/AdaptiveScale/lxdui  https://pypi.org/project/lxdui/)
+NEW:
+https://documentation.ubuntu.com/lxd/en/latest/howto/access_ui/
 https://github.com/canonical/lxd-ui
 
 for vnc
