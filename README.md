@@ -68,19 +68,26 @@ to view storage pools:
  sudo lxc storage list
  sudo lxc storage show <name>
 ```
- to view nwtwork: ```
- sudo lxc network show <brname>```
+ to view nwtwork: 
+ ```
+ sudo lxc network show <brname>
+```
 
- to view images: ```
- sudo lxc image list images:```
+ to view images: 
+ ```
+ sudo lxc image list images:
+```
 
-to get detailed info of the container: ```
+to get detailed info of the container:
+```
 sudo lxc info <container-name>
 ```
-to stop a running container:  ```
+to stop a running container:  
+```
  sudo lxc stop <container-name>
  ```
- to restart container:  ```
+ to restart container: 
+ ```
  sudo lxc restart <container-name>```
 
  to delete a container:
