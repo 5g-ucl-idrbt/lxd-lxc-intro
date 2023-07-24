@@ -150,13 +150,18 @@ paste this in your browser:
 * add the certificate
 * you will be able to see your Dashboard
 
-creating an instance:
+# creating an instance through GUI:
+we are creating a VM image
+
 ![Screenshot from 2023-07-24 12-24-15](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/ed24acce-5992-47a6-9789-034197b7daa6)
 ![Screenshot from 2023-07-24 12-24-46](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/36ee343f-c377-48d3-998f-6084e951a1b0)
 ![Screenshot from 2023-07-24 12-25-13](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/ed25f8e6-0215-41fd-8f1d-b01f5b4d7d13)
 
+select the appropriate image to use (here desktop image)
+![Screenshot from 2023-07-24 12-36-43](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/ca7ec34d-36fe-44e2-928e-cfce7720df59)
 
-
+Here we can access the GUI console of the created VM instance
+![Screenshot from 2023-07-24 12-44-26](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/f89dd410-faaf-4b23-b861-4ae0e1ca2396)
 
 
 for vnc
