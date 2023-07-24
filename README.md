@@ -63,38 +63,43 @@ To get into the containers terminal
 sudo lxc exec <container_name> -- bash
 ```
 
-to view storage pools: 
+To view storage pools: 
 ```
  sudo lxc storage list
  sudo lxc storage show <name>
 ```
- to view nwtwork: 
+ To view nwtwork: 
  ```
  sudo lxc network show <brname>
 ```
 
- to view images: 
+ To view images: 
  ```
  sudo lxc image list images:
 ```
 
-to get detailed info of the container:
+To get detailed info of the container:
 ```
 sudo lxc info <container-name>
 ```
-to stop a running container:  
+To stop a running container:  
 ```
  sudo lxc stop <container-name>
  ```
- to restart container: 
+ To restart container: 
  ```
- sudo lxc restart <container-name>```
+ sudo lxc restart <container-name>
+```
 
- to delete a container:
- ```
+ To delete a container:
+``` 
  sudo lxc stop <container-name>
  sudo lxc delete <container-name>
  ```
+
+
+
+
 for LXDUI
 https://github.com/AdaptiveScale/lxdui
 
