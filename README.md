@@ -145,6 +145,9 @@ ref:```https://documentation.ubuntu.com/lxd/en/latest/howto/server_expose/#serve
 
 paste this in your browser:
 ```https://127.0.0.1:8443```
-
+* click on create a new certificate
+* follow the steps
+* add the certificate
+* you will be able to see your Dashboard
 for vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
