@@ -125,10 +125,26 @@ In summary, LXC containers are lighter and more efficient, while virtual machine
 
 
 for LXDUI
+
 old:(https://github.com/AdaptiveScale/lxdui  https://pypi.org/project/lxdui/)
+
 NEW:
 https://documentation.ubuntu.com/lxd/en/latest/howto/access_ui/
 https://github.com/canonical/lxd-ui
+## For Canonical WEB UI
+Complete the following steps to access the LXD web UI:
+```
+sudo snap set lxd ui.enable=true
+sudo systemctl reload snap.lxd.daemon
+```
+exposing lxd:
+```
+lxc config set core.https_address :8443
+```
+ref:```https://documentation.ubuntu.com/lxd/en/latest/howto/server_expose/#server-expose```
+
+paste this in your browser:
+```https://127.0.0.1:8443```
 
 for vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
