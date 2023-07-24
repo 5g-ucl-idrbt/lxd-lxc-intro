@@ -1,5 +1,5 @@
 # lxd-lxc-intro
-Lxd introduction
+Lxd introduction ref: https://documentation.ubuntu.com/lxd/en/latest/tutorial/first_steps/
 # IMPORTANT
 ## Firewall issues
 ### You might see issues with your firewall blocking network access for your instances, or connectivity issues because you run LXD and Docker on the same host.
