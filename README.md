@@ -149,5 +149,15 @@ paste this in your browser:
 * follow the steps
 * add the certificate
 * you will be able to see your Dashboard
+
+creating an instance:
+![Screenshot from 2023-07-24 12-24-15](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/ed24acce-5992-47a6-9789-034197b7daa6)
+![Screenshot from 2023-07-24 12-24-46](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/36ee343f-c377-48d3-998f-6084e951a1b0)
+![Screenshot from 2023-07-24 12-25-13](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/ed25f8e6-0215-41fd-8f1d-b01f5b4d7d13)
+
+
+
+
+
 for vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
