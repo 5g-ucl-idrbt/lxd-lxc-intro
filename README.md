@@ -98,25 +98,26 @@ To stop a running container:
  ```
 
 ## Diffrence between launching a LXC container and a LXC VM:
-The difference between the two commands lies in the type of container that will be created:
 
-    lxc launch ubuntu:22.04
+The difference between the two commands lies in the type of container that will be created :
+
+   * lxc launch ubuntu:22.04
     This command creates a Linux container (LXC) running Ubuntu 22.04. LXC containers share the same kernel as the host system, which makes them lightweight and efficient. LXC containers are suitable for isolating applications or services on the same host without the overhead of running separate virtual machines.
 
-    lxc launch ubuntu:22.04 --vm
+   * lxc launch ubuntu:22.04 --vm
     This command creates a virtual machine (VM) that runs Ubuntu 22.04. In this case, LXD will use a hypervisor (such as KVM or VirtualBox) to create a full virtual machine, which includes its own independent kernel. VMs are more isolated from the host system, but they are generally heavier in terms of resource usage compared to LXC containers.
 
 The main differences between the two options are:
 
-    Resource Isolation:
+   * Resource Isolation:
         LXC Container: Shares the same kernel with the host system, leading to better resource utilization and efficiency. It isolates processes from the host and other containers.
         Virtual Machine: Runs its own independent kernel, which provides better isolation from the host and other VMs but comes with higher resource overhead.
 
-    Performance:
+   * Performance:
         LXC Container: Generally faster and more lightweight due to kernel sharing and reduced overhead.
         Virtual Machine: Can be slower and heavier due to the need for a separate kernel and virtualization layer.
 
-    Use Cases:
+   * Use Cases:
         LXC Container: Suitable for scenarios where you need lightweight containerization and good performance. It is ideal for running multiple isolated applications or services on the same host.
         Virtual Machine: More appropriate for scenarios where strict isolation between the guest VM and the host system is required. VMs are often used when running applications with specific OS requirements or when the host OS cannot provide the desired level of isolation.
 
