@@ -163,6 +163,26 @@ select the appropriate image to use (here desktop image)
 Here we can access the GUI console of the created VM instance
 ![Screenshot from 2023-07-24 12-44-26](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/f89dd410-faaf-4b23-b861-4ae0e1ca2396)
 
+# Testing the connectivity with server inside the VM:
+we have used Ubuntu 22.04 image and createed an instance
+get into the VM
+Dont forget to give the password to the default user ie., Ubuntu 
+```
+passwd ubuntu
 
+```
+Follow these steps to host a simple python server in the VM
+```
+sudo apt update
+sudo apt install -y net-tools 
+sudo apt install -y python3
+ifconfig     # to see the IP of the Vm
+python -m http.server 8000       # This runs a server on the port 8000 with VM IP
+```
+Check the connectivity in the bear metal
+```
+wget http://10.143.63.89:8000/    # or type the url in the browser
+
+```
 for vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
