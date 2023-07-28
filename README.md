@@ -112,7 +112,7 @@ The main differences between the two options are:
    * Resource Isolation:
         LXC Container: Shares the same kernel with the host system, leading to better resource utilization and efficiency. It isolates processes from the host and other containers.
         Virtual Machine: Runs its own independent kernel, which provides better isolation from the host and other VMs but comes with higher resource overhead.
-
+When you use the --vm option with LXC, it launches the container as a virtual machine, which means the container will run inside a QEMU-based virtualization environment rather than being a pure lightweight Linux container.
    * Performance:
         LXC Container: Generally faster and more lightweight due to kernel sharing and reduced overhead.
         Virtual Machine: Can be slower and heavier due to the need for a separate kernel and virtualization layer.
@@ -123,6 +123,13 @@ The main differences between the two options are:
 
 In summary, LXC containers are lighter and more efficient, while virtual machines provide stronger isolation but with higher resource overhead. The choice between the two options depends on your specific use case and requirements. If you need lightweight isolation for multiple applications, LXC containers are usually the preferred choice. If you need stronger isolation or specific OS requirements, a virtual machine may be more appropriate.
 
+In Canonical's LXD (pronounced Lex-Dee), the hypervisor responsible for making virtual machines (VMs) work is QEMU. LXD leverages the QEMU virtualization technology to run VMs within LXD containers.
+
+When you use LXD to create and manage virtual machines, it sets up a QEMU-based virtualization environment to host those VMs. QEMU is a powerful open-source emulator and virtualization tool that allows you to run virtual machines with various operating systems, including Linux and Windows.
+
+LXD interacts with QEMU to manage the virtual machine's lifecycle, networking, storage, and other aspects of virtualization. This combination of LXD with QEMU provides a user-friendly interface and management experience while utilizing the underlying virtualization capabilities of QEMU.
+
+It's important to note that LXD also supports running lightweight system containers using Linux container technologies (such as LXC), which provide better performance and efficiency compared to full virtual machines. However, when you choose to use LXD to run VMs, it relies on QEMU as the hypervisor to enable virtualization and run the VMs inside LXD containers.
 
 for LXDUI
 
