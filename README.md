@@ -223,6 +223,7 @@ profiles are like templates they can be used while creating an instance with def
 we can selct number of Cores, RAM, Network etc., we can also the yaml file of the configuration.
 
 # Creating a LXD Cluster
+ref: https://www.pluralsight.com/cloud-guru/labs/aws/creating-a-lxd-cluster
 In a production environment, we don't want to put all of our containers on a single LXD host. After all, what happens should that host fail? Instead, we generally want to work with a LXD cluster, multiple LXD servers that share a distributed database and allow for redundancy and some fault tolerance. we set up a small LXD cluster of three hosts.
 
 ## Configure the First Server in the Cluster
