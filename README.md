@@ -197,5 +197,19 @@ Check the connectivity in the bear metal
 wget http://10.143.63.89:8000/    # or type the url in the browser
 
 ```
+# Storage
+To create a loop file based storage, just don’t specify a source, this works for btrfs, zfs and lvm:
+
+   ```
+    lxc storage create NAME zfs
+    lxc storage create NAME btrfs
+    lxc storage create NAME lvm
+```
+If you just want to use an existing directory to store containers directly, you can do that with the dir backend, though this is our most limited backend feature and performance wise.
+
+   ```
+    lxc storage create NAME dir source=/some/empty/directory
+```
+
 for vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
