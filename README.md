@@ -222,5 +222,9 @@ profiles are like templates they can be used while creating an instance with def
 
 we can selct number of Cores, RAM, Network etc., we can also the yaml file of the configuration.
 
+# Creating a LXD Cluster
+In a production environment, we don't want to put all of our containers on a single LXD host. After all, what happens should that host fail? Instead, we generally want to work with a LXD cluster, multiple LXD servers that share a distributed database and allow for redundancy and some fault tolerance. we set up a small LXD cluster of three hosts.
+
+
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
