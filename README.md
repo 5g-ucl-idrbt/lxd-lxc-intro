@@ -205,6 +205,12 @@ To create a loop file based storage, just don’t specify a source, this works f
     lxc storage create NAME btrfs
     lxc storage create NAME lvm
 ```
+after creating the storages we can use the command
+```
+lxc storage edit NAME
+```
+to edit the size and add description
+
 If you just want to use an existing directory to store containers directly, you can do that with the dir backend, though this is our most limited backend feature and performance wise.
 
    ```
