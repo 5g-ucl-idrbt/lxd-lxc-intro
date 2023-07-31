@@ -217,7 +217,7 @@ If you just want to use an existing directory to store containers directly, you 
     lxc storage create NAME dir source=/some/empty/directory
 ```
 # Profiles
-profiles are like templates thay can be used any time with defined configurations
+profiles are like templates they can be used while creating an instance with defined configurations
 ![Screenshot from 2023-07-31 11-37-33](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/e853e065-b6d9-4653-bdb0-15d6716663c7)
 
 we can selct number of Cores, RAM, Network etc., we can also the yaml file of the configuration.
