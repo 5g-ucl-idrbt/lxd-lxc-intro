@@ -344,6 +344,7 @@ lxc launch images:alpine/3.11 web2
 lxc launch images:alpine/3.11 web3
 To see which server on the cluster these containers ended up on, run lxc list and look for the location value. There should be one container per node.
 
+ref: https://discourse.ubuntu.com/t/how-to-setup-a-basic-lxd-cluster/28992
 ## FIRST CLUSTER:
 lxd init
 Would you like to use LXD clustering? (yes/no) [default=no]: yes
