@@ -345,8 +345,10 @@ lxc launch images:alpine/3.11 web3
 To see which server on the cluster these containers ended up on, run lxc list and look for the location value. There should be one container per node.
 
 ref: https://discourse.ubuntu.com/t/how-to-setup-a-basic-lxd-cluster/28992
-## FIRST CLUSTER:
+## FIRST PC:
+```
 lxd init
+```
 Would you like to use LXD clustering? (yes/no) [default=no]: yes
 What IP address or DNS name should be used to reach this server? [default=192.168.150.120]: 
 Are you joining an existing cluster? (yes/no) [default=no]: 
@@ -360,7 +362,32 @@ What subnet should be used as the Fan underlay? [default=auto]:
 Would you like stale cached images to be updated automatically? (yes/no) [default=yes]: 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
 
-## SECOND CLUSTER
+create a join token for lxd2:
+```
+ lxc cluster add lxd2
+```
+Member lxd2 join token:
+eyJzZXJ2ZXJfbmFtZSI6Imx4ZDIiLCJmaW5nZXJwcmludCI6IjAyN2Y3NWUyMzA5MzNlZWNhOTZiYzQ1YWYwY2VjZGVjYjlmNjhhMjUwZTU5MTNlNzIzYzc5ZTFkYjgwNjc5MDQiLCJhZGRyZXNzZXMiOlsiMTkyLjE2OC4xNTAuMTIwOjg0NDMiXSwic2VjcmV0IjoiZmViZmMyYTRmZjI4NDEyYzY3YjdhOThjOGI3YTIzNTFkOTE4ZjMzN2VhMzdiMzhhMjQyZmUxNzE0YzU0Mjc1YyIsImV4cGlyZXNfYXQiOiIyMDIzLTA4LTAxVDE0OjExOjI2LjkyMDk3MTU2KzA1OjMwIn0=
 
+create a join toker for 
+## SECOND PC:
+```
+sudo snap install lxd
+sudo lxd init
+```
+Would you like to use LXD clustering? (yes/no) [default=no]: yes 
+What IP address or DNS name should be used to reach this server? [default=192.168.150.116]: 
+Are you joining an existing cluster? (yes/no) [default=no]: yes
+Do you have a join token? (yes/no/[token]) [default=no]: eyJzZXJ2ZXJfbmFtZSI6Imx4ZDIiLCJmaW5nZXJwcmludCI6IjAyN2Y3NWUyMzA5MzNlZWNhOTZiYzQ1YWYwY2VjZGVjYjlmNjhhMjUwZTU5MTNlNzIzYzc5ZTFkYjgwNjc5MDQiLCJhZGRyZXNzZXMiOlsiMTkyLjE2OC4xNTAuMTIwOjg0NDMiXSwic2VjcmV0IjoiZmViZmMyYTRmZjI4NDEyYzY3YjdhOThjOGI3YTIzNTFkOTE4ZjMzN2VhMzdiMzhhMjQyZmUxNzE0YzU0Mjc1YyIsImV4cGlyZXNfYXQiOiIyMDIzLTA4LTAxVDE0OjExOjI2LjkyMDk3MTU2KzA1OjMwIn0=
+All existing data is lost when joining a cluster, continue? (yes/no) [default=no] yes
+Choose "size" property for storage pool "default": 
+Choose "source" property for storage pool "default": 
+Choose "zfs.pool_name" property for storage pool "default": 
+Choose "zfs.pool_name" property for storage pool "test": 
+Choose "size" property for storage pool "test": 
+Choose "source" property for storage pool "test": 
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+
+## THIRD PC:
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
