@@ -231,6 +231,7 @@ ref: https://discourse.ubuntu.com/t/how-to-setup-a-basic-lxd-cluster/28992
 ```
 lxd init
 ```
+```
 Would you like to use LXD clustering? (yes/no) [default=no]: yes
 What IP address or DNS name should be used to reach this server? [default=192.168.150.120]: 
 Are you joining an existing cluster? (yes/no) [default=no]: 
@@ -243,7 +244,7 @@ Would you like to create a new Fan overlay network? (yes/no) [default=yes]:
 What subnet should be used as the Fan underlay? [default=auto]: 
 Would you like stale cached images to be updated automatically? (yes/no) [default=yes]: 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
-
+```
 create a join token for lxd2:
 ```
  lxc cluster add lxd2
@@ -265,6 +266,7 @@ eyJzZXJ2ZXJfbmFtZSI6Imx4ZDMiLCJmaW5nZXJwcmludCI6IjAyN2Y3NWUyMzA5MzNlZWNhOTZiYzQ1
 sudo snap install lxd
 sudo lxd init
 ```
+```
 Would you like to use LXD clustering? (yes/no) [default=no]: yes 
 What IP address or DNS name should be used to reach this server? [default=192.168.150.116]: 
 Are you joining an existing cluster? (yes/no) [default=no]: yes
@@ -277,11 +279,12 @@ Choose "zfs.pool_name" property for storage pool "test":
 Choose "size" property for storage pool "test": 
 Choose "source" property for storage pool "test": 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
-
+```
 ## THIRD SERVER:
 ```
 sudo snap install lxd
 sudo lxd init
+```
 ```
 Would you like to use LXD clustering? (yes/no) [default=no]: yes
 What IP address or DNS name should be used to reach this server? [default=192.168.150.117]: 
@@ -295,11 +298,12 @@ Choose "size" property for storage pool "test":
 Choose "source" property for storage pool "test": 
 Choose "zfs.pool_name" property for storage pool "test": 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
-
+```
 VERIFICATION:
 In first pc (LXD1) type this command
 ```
 lxc cluster list
+```
 ```
  lxc cluster list
 +------+------------------------------+-----------------+--------------+----------------+-------------+--------+-------------------+
@@ -312,7 +316,7 @@ lxc cluster list
 +------+------------------------------+-----------------+--------------+----------------+-------------+--------+-------------------+
 | lxd3 | https://192.168.150.117:8443 | database        | x86_64       | default        |             | ONLINE | Fully operational |
 +------+------------------------------+-----------------+--------------+----------------+-------------+--------+-------------------+
-
+```
 
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
