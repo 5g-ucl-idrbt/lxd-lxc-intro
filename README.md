@@ -344,6 +344,22 @@ lxc launch images:alpine/3.11 web2
 lxc launch images:alpine/3.11 web3
 To see which server on the cluster these containers ended up on, run lxc list and look for the location value. There should be one container per node.
 
+## FIRST CLUSTER:
+lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: yes
+What IP address or DNS name should be used to reach this server? [default=192.168.150.120]: 
+Are you joining an existing cluster? (yes/no) [default=no]: 
+What member name should be used to identify this server in the cluster? [default=idrbt]: lxd1
+Do you want to configure a new local storage pool? (yes/no) [default=yes]: no
+Do you want to configure a new remote storage pool? (yes/no) [default=no]: 
+Would you like to connect to a MAAS server? (yes/no) [default=no]: 
+Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]: 
+Would you like to create a new Fan overlay network? (yes/no) [default=yes]: 
+What subnet should be used as the Fan underlay? [default=auto]: 
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]: 
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+
+## SECOND CLUSTER
 
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
