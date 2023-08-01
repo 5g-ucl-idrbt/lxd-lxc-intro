@@ -226,126 +226,8 @@ we can selct number of Cores, RAM, Network etc., we can also the yaml file of th
 ref: https://www.pluralsight.com/cloud-guru/labs/aws/creating-a-lxd-cluster
 In a production environment, we don't want to put all of our containers on a single LXD host. After all, what happens should that host fail? Instead, we generally want to work with a LXD cluster, multiple LXD servers that share a distributed database and allow for redundancy and some fault tolerance. we set up a small LXD cluster of three hosts.
 
-## Configure the First Server in the Cluster
-Use lxd init to begin configuring the cluster, answering the questions appropriately:
-
-Would you like to use LXD clustering? (yes/no) [default=no]: yes
-What name should be used to identify this node in the cluster? [default=lxd1]: lxd1
-What IP address or DNS name should be used to reach this node? [default=10.0.1.100]: 10.0.1.100
-Are you joining an existing cluster? (yes/no) [default=no]: no
-Setup password authentication on the cluster? (yes/no) [default=yes]: yes
-Trust password for new clients: pinehead
-Again: pinehead
-Configure the rest of the server to use the default settings.
-
-
-## Add the Second Server to the Cluster
-Log into the second server via SSH.
-
-Use sudo lxd init to initialize the server with the provided prompts. This time, we want to ensure we join the cluster on 10.0.1.100, as well as print a preseed:
-
-Would you like to use LXD clustering? (yes/no) [default=no]: yes
-What name should be used to identify this node in the cluster? [default=lxd2]: lxd2
-What IP address or DNS name should be used to reach this node? [default=10.0.1.110]: 10.0.1.110
-Are you joining an existing cluster? (yes/no) [default=no]: yes
-IP address or FQDN of an existing cluster node: 10.0.1.100
-Cluster fingerprint: fa49603e55ef0a8fe4985a08d64ae785bdbcdaa9b97c7aefe6776244f2607085
-You can validate this fingerprint by running "lxc info" locally on 'lxd1' server.
-Is this the correct fingerprint? (yes/no) [default=no]: yes
-Cluster trust password: pinehead
-All existing data is lost when joining a cluster, continue? (yes/no) [default=no] yes
-Choose "size" property for storage pool "local":
-Choose "source" property for storage pool "local":
-Choose "zfs.pool_name" property for storage pool "local":
-Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: yes
-To check the fingerprint on the initial LXD server (lxd1), use lxc info during the configuration process:
-
-lxc info
-Copy the output preseed and save it to a file:
-
-vim preseed.yaml
-Note: If using Instant Terminal you will need to set the PASTE format in VIM using :SET PASTE to correctly paste the copied text.
-
-The copied text should look something like the example below - but do NOT copy the example settings below as it contains a different certificate.
-
-config:
-core.https_address: 10.0.1.110:8443
-networks:
-- config:
-bridge.mode: fan
-fan.underlay_subnet: 10.0.1.0/24
-description: ""
-managed: true
-name: lxdfan0
-type: bridge
-storage_pools:
-- config:
-size: 15GB
-source: ""
-description: ""
-name: local
-driver: zfs
-profiles:
-- config: {}
-description: ""
-devices: {}
-name: default
-cluster:
-server_name: lxd2
-enabled: true
-member_config: []
-cluster_address: 10.0.1.100:8443
-cluster_certificate: |
------BEGIN CERTIFICATE-----
-MIIB/TCCAYOgAwIBAgIQHcd/PX7W80q9XI9EI6ER6DAKBggqhkjOPQQDAzAyMRww
-GgYDVQQKExNsaW51eGNvbnRhaW5lcnMub3JnMRIwEAYDVQQDDAlyb290QGx4ZDEw
-HhcNMjAwMzAzMTUzOTIwWhcNMzAwMzAxMTUzOTIwWjAyMRwwGgYDVQQKExNsaW51
-eGNvbnRhaW5lcnMub3JnMRIwEAYDVQQDDAlyb290QGx4ZDEwdjAQBgcqhkjOPQIB
-BgUrgQQAIgNiAAT/9qymn5B8d1RVY3BCHz62Mo9MB9MtQEjlGdSG/W4NsxiVb1tH
-xp6Dbq27Sydkubzyz0hEwbw+tz7sr4CUkd2+n9MWQLmo79vH7sx5P7CoQAJ+n0NC
-94n+HqZwjG67rv2jXjBcMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEF
-BQcDATAMBgNVHRMBAf8EAjAAMCcGA1UdEQQgMB6CBGx4ZDGHBH8AAAGHEAAAAAAA
-AAAAAAAAAAAAAAEwCgYIKoZIzj0EAwMDaAAwZQIxAMF9XbIwl8y/amt2yaGUHsuQ
-SHSGswbKHo6uW5FFvLUDi6V7YZsWqR0YkBgdSV0xvQIwAeKK6YZT71Qyhuy52ptE
-X36Oo7aTeqZCckgR9GSsZ18zmLl0QlJHG9K+BKWbRrBj
------END CERTIFICATE-----
-server_address: 10.0.1.110:8443
-cluster_password: pinehead
-
-## Add the Third Server to the Cluster
-From the lxd2 server, copy the preseed.yaml file to the lxd3 server:
-
-scp preseed.yaml cloud_user@10.0.1.120:
-Log into the lxd3 server with SSH:
-
-ssh cloud_user@10.0.1.120
-Open the preseed.yaml file and update the core.https_address to be 10.0.1.120:8443 Locate server_name and change it to lxd3:
-
-vim preseed.yaml
-core.https_address: 10.0.1.120:8443
-
-...
-
-server_name: lxd3
-
-...
-Initialize the server using the preseed file:
-
-cat preseed.yaml | sudo lxd init --preseed
-
-## Create Containers
-Return to lxd1. View all clusters:
-
-lxc cluster list
-Create three containers to test the cluster:
-
-lxc launch images:alpine/3.11 web1
-lxc launch images:alpine/3.11 web2
-lxc launch images:alpine/3.11 web3
-To see which server on the cluster these containers ended up on, run lxc list and look for the location value. There should be one container per node.
-
 ref: https://discourse.ubuntu.com/t/how-to-setup-a-basic-lxd-cluster/28992
-## FIRST PC:
+## FIRST SERVER:
 ```
 lxd init
 ```
@@ -372,12 +254,13 @@ eyJzZXJ2ZXJfbmFtZSI6Imx4ZDIiLCJmaW5nZXJwcmludCI6IjAyN2Y3NWUyMzA5MzNlZWNhOTZiYzQ1
 create a join toker for lxd3:
 ```
 lxd cluster add lxd3
-```Member lxd3 join token:
+```
+Member lxd3 join token:
 eyJzZXJ2ZXJfbmFtZSI6Imx4ZDMiLCJmaW5nZXJwcmludCI6IjAyN2Y3NWUyMzA5MzNlZWNhOTZiYzQ1YWYwY2VjZGVjYjlmNjhhMjUwZTU5MTNlNzIzYzc5ZTFkYjgwNjc5MDQiLCJhZGRyZXNzZXMiOlsiMTkyLjE2OC4xNTAuMTIwOjg0NDMiLCIxOTIuMTY4LjE1MC4xMTY6ODQ0MyJdLCJzZWNyZXQiOiJjMzY3Y2QzNDlmY2NhMjExMGNjNjM1NGZlNzhhOGNlZTMxYjA2ZTBmZjVjOTg2YTA4MGVhYWE5MzA3NGZhZWI5IiwiZXhwaXJlc19hdCI6IjIwMjMtMDgtMDFUMTQ6MzI6MDguMDAyMTUyMjY5KzA1OjMwIn0=
 
 
 
-## SECOND PC:
+## SECOND SERVER:
 ```
 sudo snap install lxd
 sudo lxd init
@@ -395,7 +278,7 @@ Choose "size" property for storage pool "test":
 Choose "source" property for storage pool "test": 
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
 
-## THIRD PC:
+## THIRD SERVER:
 ```
 sudo snap install lxd
 sudo lxd init
