@@ -320,6 +320,26 @@ lxc cluster list
 ## LXD UI Dashboard
 ![Screenshot from 2023-08-01 11-52-06](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/cfedc219-2875-4043-ad53-99593a1b27fb)
 
+## Deploying instances in a cluster
+Deploying instances on the cluster
+
+Deploying an instance on the cluster is fairly simple. We use the basic commands for deploying system containers or VMs
+
+System containers
+```
+lxc launch ubuntu:20.04 A1
+```
+VMs
+```
+lxc launch ubuntu:20.04 A2 --vm
+```
+When deploying instances, if needed, you can designate a specific target node as follows
+```
+lxc launch --target node2 ubuntu:22.04 A3
+```
+ⓘA1, A2, A3 are just the names we used for the instances
+
+If you do not designate a target node, the instance will be launched on the server that is running the lowest number of instances. Once an instance is launched, you can operate it from any node in the cluster.
 
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
