@@ -317,6 +317,9 @@ lxc cluster list
 | lxd3 | https://192.168.150.117:8443 | database        | x86_64       | default        |             | ONLINE | Fully operational |
 +------+------------------------------+-----------------+--------------+----------------+-------------+--------+-------------------+
 ```
+## LXD UI Dashboard
+![Screenshot from 2023-08-01 11-52-06](https://github.com/5g-ucl-idrbt/lxd-lxc-intro/assets/46273637/cfedc219-2875-4043-ad53-99593a1b27fb)
+
 
 # For vnc
 https://www.reddit.com/r/Proxmox/comments/l5cqf1/yes_it_is_possible_to_have_a_gui_in_an_lxc/
